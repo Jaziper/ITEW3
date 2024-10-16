@@ -1,5 +1,5 @@
 <?php
-require_once 'db_config.php';
+require 'db_config.php';
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = trim($_POST["email"]);

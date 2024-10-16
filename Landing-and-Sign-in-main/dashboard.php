@@ -7,20 +7,18 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         $_SESSION["username"] = $_COOKIE["user"];
         // Optionally, query the database to get more user details if needed
     } else {
-        header("location: login.html");
+        header("location: index.php");
         exit;
     }
 }
 setcookie("user", $_SESSION["username"], time() + (86400 * 30), "/"); // Renew for another 30 days
+
+// Check if the "Remember Me" cookies are set 
+if (isset($_COOKIE['username']) && isset($_COOKIE['password'])) { 
+    echo "Welcome, " . $_SESSION['username'] . "! You have been remembered through cookies.<br>"; 
+} else { 
+    echo "Welcome, " . $_SESSION['username'] . "!<br>"; 
+}
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>UCommerce</title>
-</head>
-<body>
-    <h1>Welcome, <?php echo $_SESSION["username"]; ?></h1>
-    <a href="logout.php">Logout</a>
-</body>
-</html>
+<a href="logout.php">Logout</a> 
