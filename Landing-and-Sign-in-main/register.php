@@ -10,7 +10,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt = $conn->prepare($sql)) {
         $stmt->bind_param("sss", $email, $username, $password);
         if ($stmt->execute()) {
-            // Automatically log the user in
             $_SESSION["loggedin"] = true;
             $_SESSION["id"] = $stmt->insert_id;
             $_SESSION["username"] = $username;

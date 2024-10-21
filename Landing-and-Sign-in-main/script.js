@@ -5,7 +5,7 @@
     const email = document.getElementById('login-email').value.trim();
     const password = document.getElementById('login-password').value.trim();
 
-    // if there is no inputter email or password
+    // if there is no input email or password
     if (!email || !password) {
         alert('Please fill in all fields.');
         return;
