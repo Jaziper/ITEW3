@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("sss", $email, $username, $password);
         if ($stmt->execute()) {
             $_SESSION["loggedin"] = true;
-            $_SESSION["id"] = $stmt->insert_id;
+            $_SESSION["user_id"] = $stmt->insert_id;
             $_SESSION["username"] = $username;
             setcookie("user", $username, time() + (86400 * 30), "/"); // 30 days
 
